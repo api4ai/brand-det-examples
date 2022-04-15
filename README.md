@@ -1,7 +1,7 @@
 # API4AI Samples: Brand Recognition 
 
 <div align="center">
-<img src="https://storage.googleapis.com/api4ai-static/logo/a4a-logo-horizontal-gradient-rectangular-bg-round-glow-small-550.png"/>
+<a target="_blank" href="https://api4.ai"><img src="https://storage.googleapis.com/api4ai-static/logo/a4a-logo-horizontal-gradient-rectangular-bg-round-glow-small-550.png"/></a>
 </div>
 
 
