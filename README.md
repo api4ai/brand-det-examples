@@ -8,7 +8,7 @@
 <div align="center">
 <a target="_blank" href="https://rapidapi.com/api4ai-api4ai-default/api/brand-recognition/details"><img src="https://img.shields.io/badge/View%20on%20RapidAPI-gray?logo=octopusdeploy&style=for-the-badge"/></a>
 <a target="_blank" href="https://api4.ai/apis/brand-recognition"><img src="https://img.shields.io/badge/api4.ai%20platform-fee33c?style=for-the-badge&logo=icloud&logoColor=black"/></a>
-<a target="_blank" href="https://rapidapi.com/api4ai-api4ai-default/api/brand-recognition/details"><img src="https://img.shields.io/badge/-Telegram%20demo-ddd?logo=telegram&style=for-the-badge"/></a>
+<a target="_blank" href="http://t.me/a4a_brand_det_bot"><img src="https://img.shields.io/badge/-Telegram%20demo-ddd?logo=telegram&style=for-the-badge"/></a>
 <br><br>
 <a target="_blank" href="https://www.instagram.com/api4ai"><img src="https://img.shields.io/badge/instagram--blue?style=social&logo=instagram"/></a>
 <a target="_blank" href="https://www.facebook.com/api4ai.solutions/"><img src="https://img.shields.io/badge/facebook--blue?style=social&logo=facebook"/></a>
