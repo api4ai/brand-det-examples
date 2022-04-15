@@ -1,4 +1,8 @@
-# API4AI brand recognition sample
+# API4AI brand logo recognition sample
+
+This directory contains a minimalistic sample that sends requests to the API4AI Brand Recognition API.
+The sample is implemented in `python` using [aiohttp](https://pypi.org/project/aiohttp/) module.
+
 
 ## Overview
 
