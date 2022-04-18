@@ -65,4 +65,4 @@ Feel free to contact API4AI team if have any questions.
 * Email: hello@api4.ai
 * Telegram: https://t.me/a4a_support_bot
 
-Please, if you have trouble with configuration or running, feel free to open an issue and ask any questions about using API.  
+Please, if you have trouble with configuration or running, feel free to open an issue and ask any questions about using API.
