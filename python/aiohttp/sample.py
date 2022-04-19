@@ -1,6 +1,5 @@
 """Example of using API4AI brand recognition."""
 import asyncio
-import os
 import sys
 
 import aiohttp
