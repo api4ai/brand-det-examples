@@ -98,8 +98,10 @@ let dataTask = session.dataTask(with: request, completionHandler: { (data, respo
                 let entity = (result["entities"] as! [[String:Any]])[0]
                 let objects = entity["objects"] as! [[String:Any]]
                 for o in objects {
-                    let c = (o["entities"] as! [[String:Any]])[0]["classes"]
-                    print(c ?? "")
+                    let brands = (o["entities"] as! [[String:Any]])[0]["classes"] as! [String:Float]
+                    for (brand, confidence) in brands {
+                        print("\(brand): \(confidence)")
+                    }
                 }
             }
         } catch {
