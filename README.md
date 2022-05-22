@@ -46,15 +46,11 @@ This project run to help API users with ready-to-use examples in a set of the mo
 * `NodeJS`:
   * [Axios](./nodejs/axios)
 * `Javascript`:
+  * [fetch](./js/fetch)
   * [Axios](./js/axios)
   * [jQuery](./js/jquery)
 * `PHP`:
   * [cURL](./php/curl)
-
-Coming soon:
-
-* `Javascript`:
-  * [fetch](./js/fetch)
 
 
 ## 🔗 Links
