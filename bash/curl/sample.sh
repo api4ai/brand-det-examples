@@ -19,10 +19,10 @@ RAPIDAPI_KEY=""
 
 # Define URL and headers.
 if [[ "${MODE}" == "demo" ]]; then
-    URL="https://demo.api4ai.cloud/brand-det/v1/results"
+    URL="https://demo.api4ai.cloud/brand-det/v2/results"
     HEADERS="A4A-CLIENT-APP-ID: sample"  # optional header
 elif [[ "${MODE}" == "rapidapi" ]]; then
-    URL="https://brand-recognition.p.rapidapi.com/v1/results"
+    URL="https://brand-recognition.p.rapidapi.com/v2/results"
     HEADERS="X-RapidAPI-Key: ${RAPIDAPI_KEY}"
 else
     echo "Unsupported sample mode"

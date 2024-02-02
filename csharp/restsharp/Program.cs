@@ -30,11 +30,11 @@ Dictionary<String, String> headers = new Dictionary<String, String>();
 
 switch (MODE) {
     case "demo":
-        url = "https://demo.api4ai.cloud/brand-det/v1/results";
+        url = "https://demo.api4ai.cloud/brand-det/v2/results";
         headers.Add("A4A-CLIENT-APP-ID", "sample");
         break;
     case "rapidapi":
-        url = "https://brand-recognition.p.rapidapi.com/v1/results";
+        url = "https://brand-recognition.p.rapidapi.com/v2/results";
         headers.Add("X-RapidAPI-Key", RAPIDAPI_KEY);
         break;
     default:
@@ -59,14 +59,12 @@ var jsonResponse = (await client.ExecutePostAsync(request)).Content!;
 // Print raw response.
 Console.WriteLine($"[i] Raw response:\n{jsonResponse}\n");
 
-// Parse response and print recognized brands with probabilities.
+// Parse response and print recognized brands.
 JsonNode docRoot = JsonNode.Parse(jsonResponse)!.Root;
-JsonArray objects = docRoot["results"]![0]!["entities"]![0]!["objects"]!.AsArray();
-Console.WriteLine("[i] Recognized brands with probabilities:");
-foreach (JsonNode? obj in objects) {
-    foreach (var brand in obj!["entities"]![0]!["classes"]!.AsObject()) {
-        Console.WriteLine($"{brand.Key}: {brand.Value}");
-    }
+JsonArray brands = docRoot["results"]![0]!["entities"]![0]!["strings"]!.AsArray();
+Console.WriteLine("[i] Recognized brands:");
+foreach (var brand in brands) {
+    Console.WriteLine($"{brand}");
 }
 
 return 0;

@@ -18,11 +18,11 @@ $RAPIDAPI_KEY = null;
 
 $OPTIONS = [
     'demo' => [
-        'url' => 'https://demo.api4ai.cloud/brand-det/v1/results',
+        'url' => 'https://demo.api4ai.cloud/brand-det/v2/results',
         'headers' => ['A4A-CLIENT-APP-ID: sample']
     ],
     'rapidapi' => [
-        'url' => 'https://brand-recognition.p.rapidapi.com/v1/results',
+        'url' => 'https://brand-recognition.p.rapidapi.com/v2/results',
         'headers' => ["X-RapidAPI-Key: {$RAPIDAPI_KEY}"]
     ]
 ];
@@ -60,19 +60,15 @@ echo join('',
            json_encode($raw_response),
            "\n"]);
 
-// Parse response and print recognized brands with probabilities.
-$predicted_objects = array_map('get_cls_data', $raw_response['results'][0]['entities'][0]['objects']);
+// Parse response and print recognized brands.
+$brands = $raw_response['results'][0]['entities'][0]['strings'];
 
 // Close request session.
 curl_close($request);
 
-// Print recognized brands with probabilities.
+// Print recognized brands.
 echo join('',
-          ["\n💬 Recognized brands with probabilities: \n",
-           json_encode($predicted_objects, JSON_PRETTY_PRINT),
+          ["\n💬 Recognized brands: \n",
+           json_encode($brands, JSON_PRETTY_PRINT),
            "\n"]);
-
-function get_cls_data(array $obj): array {
-    return $obj['entities'][0]['classes'];
-}
 ?>

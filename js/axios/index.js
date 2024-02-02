@@ -15,11 +15,11 @@ const RAPIDAPI_KEY = ''
 
 const OPTIONS = {
   demo: {
-    url: 'https://demo.api4ai.cloud/brand-det/v1/results',
+    url: 'https://demo.api4ai.cloud/brand-det/v2/results',
     headers: { 'A4A-CLIENT-APP-ID': 'sample' }
   },
   rapidapi: {
-    url: 'https://brand-recognition.p.rapidapi.com/v1/results',
+    url: 'https://brand-recognition.p.rapidapi.com/v2/results',
     headers: { 'X-RapidAPI-Key': RAPIDAPI_KEY }
   }
 }
@@ -53,14 +53,9 @@ document.addEventListener('DOMContentLoaded', function (event) {
         // Print raw response.
         raw.textContent = JSON.stringify(response.data, undefined, 2)
         sectionRaw.hidden = false
-        // Parse response and print recognized brands with probabilities.
-        const brands = response.data.results[0].entities[0].objects
-          .map((obj) => {
-            const classes = obj.entities[0].classes
-            return `${Object.keys(classes)[0]}: ${Object.values(classes)[0]}\n`
-          })
-          .join('')
-        parsed.textContent = brands || 'No brands recognized.'
+        // Parse response and print recognized brands.
+        const brands = response.data.results[0].entities[0].strings
+        parsed.textContent = brands.length > 0 ? brands : 'No brands recognized.'
         sectionParsed.hidden = false
       })
       .catch(function (error) {

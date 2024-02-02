@@ -14,6 +14,6 @@ DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 raw_response=$(bash ${DIR}/sample.sh "${IMAGE}")
 echo -e "💬 Raw response:\n${raw_response}\n"
 
-# Parse response and print recognized brands with probabilities.
-echo "💬 Recognized brands with probabilities:"
-jq ".results[0].entities[0].objects[].entities[0].classes" <<< ${raw_response} | grep -v '{\|}'
+# Parse response and print recognized brands.
+echo "💬 Recognized brands:"
+jq ".results[0].entities[0].strings" <<< ${raw_response} | grep -v '{\|}'

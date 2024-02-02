@@ -21,11 +21,11 @@ const RAPIDAPI_KEY = ''
 
 const OPTIONS = {
   demo: {
-    url: 'https://demo.api4ai.cloud/brand-det/v1/results',
+    url: 'https://demo.api4ai.cloud/brand-det/v2/results',
     headers: { 'A4A-CLIENT-APP-ID': 'sample' }
   },
   rapidapi: {
-    url: 'https://brand-recognition.p.rapidapi.com/v1/results',
+    url: 'https://brand-recognition.p.rapidapi.com/v2/results',
     headers: { 'X-RapidAPI-Key': RAPIDAPI_KEY }
   }
 }
@@ -56,8 +56,7 @@ axios.post(OPTIONS[MODE].url, form, { headers })
   .then(function (response) {
     // Print raw response.
     console.log(`💬 Raw response:\n${JSON.stringify(response.data)}\n`)
-    // Parse response and print recognized brands with probabilities.
-    const brands = response.data.results[0].entities[0].objects
-      .map((obj) => obj.entities[0].classes)
-    console.log(`💬 Recognized brands with probabilities:\n${JSON.stringify(brands)}`)
+    // Parse response and print recognized brands.
+    const brands = response.data.results[0].entities[0].strings
+    console.log(`💬 Recognized brands:\n${JSON.stringify(brands)}`)
   })
