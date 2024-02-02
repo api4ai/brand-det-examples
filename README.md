@@ -21,12 +21,10 @@
 
 API4AI is cloud-native computer vision & AI platform for startups, enterprises and individual developers. This repository contains sample mini apps that utilize **Brand Recognition API** provided by API4AI.
 
-Brand Recognition API covers tens of popular brands from different industries. Its output is a bounding box with a logo image inside, logo brand prediction and its confidence level. It is aimed at a number of applications: it can be integrated into a mobile app or act as a part of a marketing research tool, etc.
+Brand Recognition API covers tens of popular brands from different industries. Its output is a list of brand logos inside the image. It is aimed at a number of applications: it can be integrated into a mobile app or act as a part of a marketing research tool, etc.
 
 <div align="center">
-<img width="350" src="https://storage.googleapis.com/api4ai-static/visuals/brand_recognition_1.jpg"/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<img width="350" src="https://storage.googleapis.com/api4ai-static/visuals/brand_recognition_2.jpg"/>
+<img width="350" src="https://storage.googleapis.com/api4ai-static/visuals/brand_rec_1.jpg"/>
 </div>
 
 
