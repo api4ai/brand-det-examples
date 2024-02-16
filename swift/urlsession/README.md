@@ -1,7 +1,7 @@
 # API4AI brand logo recognition sample
 
 This directory contains a minimalistic sample that sends requests to the API4AI Brand Recognition API.
-The sample is implemented in `python` using [requests](https://pypi.org/project/requests/) module.
+The sample is implemented in `Swift` using [URLSession](https://developer.apple.com/documentation/foundation/urlsession) class.
 
 
 ## Overview
