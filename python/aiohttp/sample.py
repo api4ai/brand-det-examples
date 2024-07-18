@@ -25,11 +25,11 @@ RAPIDAPI_KEY = ''
 
 OPTIONS = {
     'demo': {
-        'url': 'https://demo.api4ai.cloud/brand-det/v2/results',
+        'url': 'https://demo.api4ai.cloud/brand-det/v2/results?detailed=True',
         'headers': {'A4A-CLIENT-APP-ID': 'sample'}
     },
     'rapidapi': {
-        'url': 'https://brand-recognition.p.rapidapi.com/v2/results',
+        'url': 'https://brand-recognition.p.rapidapi.com/v2/results?detailed=True',
         'headers': {'X-RapidAPI-Key': RAPIDAPI_KEY}
     }
 }
@@ -57,9 +57,11 @@ async def main():
         print(f'💬 Raw response:\n{resp_text}\n')
 
         # Parse response and print recognized brands.
-        brands = resp_json['results'][0]['entities'][0]['strings']
+        brands = resp_json['results'][0]['entities'][0]['array']
 
-        print(f'💬 Recognized brands:\n{brands}\n')
+        print(f'💬 Recognized brands:')
+        for b in brands:
+            print(f'  - {b["name"]}: {b["size_category"]}')
 
 
 if __name__ == '__main__':

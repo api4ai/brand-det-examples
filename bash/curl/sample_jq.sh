@@ -16,4 +16,4 @@ echo -e "💬 Raw response:\n${raw_response}\n"
 
 # Parse response and print recognized brands.
 echo "💬 Recognized brands:"
-jq ".results[0].entities[0].strings" <<< ${raw_response} | grep -v '{\|}'
+jq -r '.results[0].entities[0].array[] | "  - \(.name): \(.size_category)"' <<< ${raw_response}

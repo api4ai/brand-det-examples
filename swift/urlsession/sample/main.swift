@@ -32,13 +32,13 @@ let RAPIDAPI_KEY = ""
 
 let OPTIONS = [
     "demo": [
-        "url": "https://demo.api4ai.cloud/brand-det/v2/results",
+        "url": "https://demo.api4ai.cloud/brand-det/v2/results?detailed=True",
         "headers": [
             "A4A-CLIENT-APP-ID": "sample"
         ] as NSMutableDictionary
     ],
     "rapidapi": [
-        "url": "https://brand-recognition.p.rapidapi.com/v2/results",
+        "url": "https://brand-recognition.p.rapidapi.com/v2/results?detailed=True",
         "headers": [
             "X-RapidAPI-Key": RAPIDAPI_KEY
         ] as NSMutableDictionary
@@ -96,9 +96,11 @@ let dataTask = session.dataTask(with: request, completionHandler: { (data, respo
                 // Parse data.
                 print("💬 Recognized brands with probabilities:")
                 let entity = (result["entities"] as! [[String:Any]])[0]
-                let brands = entity["strings"] as! [String]
+                let brands = entity["array"] as! [[String: String]]
                 for brand in brands {
-                    print("\(brand)")
+                    let name = brand["name"] as! String
+                    let size_category = brand["size_category"] as! String
+                    print("  - \(name): \(size_category)")
                 }
             }
         } catch {

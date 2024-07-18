@@ -18,11 +18,11 @@ $RAPIDAPI_KEY = null;
 
 $OPTIONS = [
     'demo' => [
-        'url' => 'https://demo.api4ai.cloud/brand-det/v2/results',
+        'url' => 'https://demo.api4ai.cloud/brand-det/v2/results?detailed=True',
         'headers' => ['A4A-CLIENT-APP-ID: sample']
     ],
     'rapidapi' => [
-        'url' => 'https://brand-recognition.p.rapidapi.com/v2/results',
+        'url' => 'https://brand-recognition.p.rapidapi.com/v2/results?detailed=True',
         'headers' => ["X-RapidAPI-Key: {$RAPIDAPI_KEY}"]
     ]
 ];
@@ -61,14 +61,14 @@ echo join('',
            "\n"]);
 
 // Parse response and print recognized brands.
-$brands = $raw_response['results'][0]['entities'][0]['strings'];
+$brands = $raw_response['results'][0]['entities'][0]['array'];
 
 // Close request session.
 curl_close($request);
 
 // Print recognized brands.
-echo join('',
-          ["\n💬 Recognized brands: \n",
-           json_encode($brands, JSON_PRETTY_PRINT),
-           "\n"]);
+echo "\n💬 Recognized brands:\n";
+foreach ($brands as $brand) {
+    echo "  - {$brand['name']}: {$brand['size_category']}\n";
+}
 ?>

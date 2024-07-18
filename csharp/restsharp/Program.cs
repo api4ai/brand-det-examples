@@ -30,11 +30,11 @@ Dictionary<String, String> headers = new Dictionary<String, String>();
 
 switch (MODE) {
     case "demo":
-        url = "https://demo.api4ai.cloud/brand-det/v2/results";
+        url = "https://demo.api4ai.cloud/brand-det/v2/results?detailed=True";
         headers.Add("A4A-CLIENT-APP-ID", "sample");
         break;
     case "rapidapi":
-        url = "https://brand-recognition.p.rapidapi.com/v2/results";
+        url = "https://brand-recognition.p.rapidapi.com/v2/results?detailed=True";
         headers.Add("X-RapidAPI-Key", RAPIDAPI_KEY);
         break;
     default:
@@ -61,10 +61,12 @@ Console.WriteLine($"[i] Raw response:\n{jsonResponse}\n");
 
 // Parse response and print recognized brands.
 JsonNode docRoot = JsonNode.Parse(jsonResponse)!.Root;
-JsonArray brands = docRoot["results"]![0]!["entities"]![0]!["strings"]!.AsArray();
+JsonArray brands = docRoot["results"]![0]!["entities"]![0]!["array"]!.AsArray();
 Console.WriteLine("[i] Recognized brands:");
 foreach (var brand in brands) {
-    Console.WriteLine($"{brand}");
+    string name = brand["name"]!.ToString();
+    string sizeCategory = brand["size_category"]!.ToString();
+    Console.WriteLine($"  - {name}: {sizeCategory}");
 }
 
 return 0;
